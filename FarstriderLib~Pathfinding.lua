@@ -1305,3 +1305,11 @@ function Pathfinding:ChangeTravelCostMultiplier(newMultiplier)
     FarstriderLib.Logger:Info("Travel cost multiplier changed to:", newMultiplier)
     self:Rebuild()
 end
+
+--- Set the assumed average travel speed and rebuild the graph.
+---@param yardsPerSecond number? nil restores the speed for the player's level and game version
+function Pathfinding:SetTravelSpeed(yardsPerSecond)
+    if yardsPerSecond == nil then return self:ChangeTravelCostMultiplier(nil) end
+    if type(yardsPerSecond) ~= "number" or yardsPerSecond <= 0 then return end
+    self:ChangeTravelCostMultiplier(1 / yardsPerSecond)
+end

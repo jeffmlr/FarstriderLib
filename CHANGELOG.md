@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+### New Features
+- `FarstriderLib_API.SetTravelSpeed(yardsPerSecond)` overrides the assumed average travel speed (and rebuilds the graph); `SetTravelSpeed(nil)` restores the speed for your level and game version
+
 ## 1.5.0
 
 ### New Features
