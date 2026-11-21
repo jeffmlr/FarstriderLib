@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+### New Features
+- Tab completes `/fslog` (debug builds) in the chat box when Gilded is installed; it takes no words, so a Tab on it prints its usage line. Retail and Forever alike.
+
 ## 1.5.0
 
 ### New Features
