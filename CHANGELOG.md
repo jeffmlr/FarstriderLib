@@ -3,6 +3,8 @@
 ## [Unreleased]
 
 ### Fixed
+- Finding a trail no longer clears TomTom's waypoints: `FindTrail` called a debug routine that reset TomTom's waypoint list, so an addon that asks for a trail every frame made the TomTom arrow disappear and redraw several times a second.
+- `deploy.sh` installs the add-on without its debug-only code (the lines and files marked `REMOVE_LINE`), as upstream's packager does, instead of a plain copy of the repo.
 - Preflight's "Player map position" check is skipped inside instances, where the game gives no position, instead of failing.
 - Loads as up to date on Midnight 12.1.7 (interface 120107).
 

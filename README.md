@@ -55,6 +55,8 @@ For standalone installs:
 2. Install **FarstriderLib Data**.
 3. Install and enable any addon that depends on them.
 
+To install from a checkout of this repository, run `bash deploy.sh`: it copies the add-on into each game client's AddOns folder without the debug-only code. A plain copy of the repository is a debug build.
+
 ### Support and Feedback
 
 For support, bug reports, or integration feedback, join the community on [Discord](https://discord.gg/TrJFGcah7z).

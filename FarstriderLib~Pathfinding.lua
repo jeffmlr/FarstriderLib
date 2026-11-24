@@ -1206,6 +1206,7 @@ function Pathfinding:CreateWaypointGraph(waypoints)
 end
 
 --- Render the optimized path as waypoint pins on the world map (debug only).
+--- Only the debug navigation test calls this; FindTrail never does.
 ---@param optimizedPath table[]
 ---@param path NavNode[]
 ---@param edges NavEdge[]
@@ -1214,11 +1215,6 @@ function Pathfinding:PrintPath(optimizedPath, path, edges)
         FarstriderLib.Logger:Error("No path found between the specified locations.")
         return
     end
-
-    if TomTom then                                             -- REMOVE_LINE
-        TomTom.waydb:ResetProfile()                            -- REMOVE_LINE
-        TomTom:ReloadWaypoints()                               -- REMOVE_LINE
-    end                                                        -- REMOVE_LINE
 
     if DevTool then                                            -- REMOVE_LINE
         DevTool:AddData(path, "Path Nodes")                    -- REMOVE_LINE
