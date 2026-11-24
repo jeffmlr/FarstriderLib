@@ -325,7 +325,7 @@ function FarstriderLib.Debug.NavigationTest()
     print("Start Location:", sLoc.mapId, sLoc.pos.x, sLoc.pos.y, sLoc.pos.z)
     print("Goal Location:", gLoc.mapId, gLoc.pos.x, gLoc.pos.y, gLoc.pos.z)
 
-    local optimizedPath, path = FarstriderLib.Pathfinding:FindPathBetweenLocations2(
+    local optimizedPath, path, edges = FarstriderLib.Pathfinding:FindPathBetweenLocations2(
         { mapId = sLoc.mapId, pos = { x = sLoc.pos.x, y = sLoc.pos.y, z = sLoc.pos.z }, isUI = sLoc.isUI },
         { mapId = gLoc.mapId, pos = { x = gLoc.pos.x, y = gLoc.pos.y, z = gLoc.pos.z }, isUI = gLoc.isUI }
     )
@@ -338,6 +338,8 @@ function FarstriderLib.Debug.NavigationTest()
         FarstriderLib.Logger:Info(string.format("Waypoint %d: Map ID %d at (%.2f, %.2f, %.2f)", i, loc.mapId, loc.pos.x,
             loc.pos.y, loc.pos.z))
     end
+
+    FarstriderLib.Pathfinding:PrintPath(optimizedPath, path, edges)
 end
 
 -- Debug-only PLAYER_LOGIN: render all nav nodes on the world map
