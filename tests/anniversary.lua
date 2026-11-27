@@ -37,7 +37,8 @@ check(connections:find("-- Stormwind <-> Caverns of Time (Anniversary)", 1, true
 -- Unit-test the holiday helper against a mock calendar / date API.
 -- Define the mock first, then Preflight's strict_api (when STRICT_CLIENT is set),
 -- then load the helper — so the mock cannot provide an API the live client lacks.
-FarstriderLibData = { Internal = {}, L = {} }
+local inertFrame = setmetatable({}, { __index = function() return function() end end })
+FarstriderLibData = { Internal = { createFrame = function() return inertFrame end }, L = {} }
 
 local calTime = { year = 2026, month = 11, monthDay = 20 }
 local dayEvents = {}
