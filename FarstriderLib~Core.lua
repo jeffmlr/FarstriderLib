@@ -31,8 +31,6 @@ local function FindTrail(startMapId, startX, startY, startZ, goalMapId, endX, en
     local goalLocation = { mapId = goalMapId, pos = { x = endX, y = endY, z = endZ == 0 and GetZ(goalMapId) or endZ }, isUI = true } ---@type NavLocation
     local optimizedPath, path, edges = FarstriderLib.Pathfinding:FindPathBetweenLocations2(startLocation, goalLocation, leaveInstance)
 
-    FarstriderLib.Pathfinding:PrintPath(optimizedPath, path, edges) -- REMOVE_LINE
-
     return optimizedPath, path, edges
 end
 
